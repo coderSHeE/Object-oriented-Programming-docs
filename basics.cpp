@@ -21,7 +21,7 @@
 2-funtion 
 3-pointers 
 4-refrance 
-*/
+
 #include <iostream>
 using namespace std;
 
@@ -31,7 +31,7 @@ class me{
     int  section  ;
     public:
     void getdata(int a , int b);
-    void putdata(){
+    void setdata(){
         cout<< "my age is :"<<endl;
         cout << "my nmae is :"<<endl;
     }
@@ -48,7 +48,80 @@ void me :: getdata(int a , int b){
 int main(){
     me p;
     p.getdata(20 , 2);
-    p.putdata();
+    p.setdata();
 
     return 0;
 }
+*/
+#include <iostream>
+using namespace std;
+class test1 {
+        int a,b;
+        public:
+        friend class test2;
+        void getab(){
+            cout <<"enter value/n";
+            cin>> a>>b;
+
+        }
+};
+
+class test2{
+    public:
+    void putab(test1   t1){
+        cout <<"a ="<<t1.a<<endl;
+         cout <<"b ="<<t1.b<<endl;
+    }
+};
+
+int main(){
+    test1 t1;
+    test2 t2;
+
+    t1.getab();
+    t2.putab(t1);
+     return 0;
+
+}
+
+
+class author{
+    char name[20];
+    friend class book;
+
+};
+
+class book{
+    char bname[20];
+    float price;
+
+    author a;
+    public:
+    void getdata(){
+        cout <<"aithor name "<<endl;
+        cin >> a.name;
+        cout <<"enter book name"<<endl;
+        cin >> bname;
+        cout <<"enter price"<< price;
+
+    }
+    
+};
+#include <string.h>
+ class stu{
+   char name[10], course[20];
+   public:
+   stu(){                        //defalut constructor 
+
+   }
+
+   stu( char name[10], char course[20]){
+    strcpy(this ->course , course);
+    strcpy(this ->name, name);
+   } //prametrized constructors
+
+
+   
+ };
+
+ 
